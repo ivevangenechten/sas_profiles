@@ -1,5 +1,7 @@
 class profiles::aegir {
 
-  include aegir
+class {'aegir':
+  ensure => latest,
+}
 
 }
