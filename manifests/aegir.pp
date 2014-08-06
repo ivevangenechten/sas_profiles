@@ -1,6 +1,6 @@
 class profiles::aegir {
 
-class {'aegir':
+class {'::aegir':
   ensure => latest,
 }
 
