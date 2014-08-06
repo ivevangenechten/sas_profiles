@@ -1,3 +1,3 @@
-class roles::aegir {
+class profiles::aegir {
 
 }
