@@ -1,6 +1,8 @@
 class profiles::jenkins {
 
-include '::jenkins'
+class { '::jenkins':
+  configure_firewall => false,
+}
 
 
 }
