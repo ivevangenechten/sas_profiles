@@ -1,6 +1,8 @@
 class profiles::jenkins {
 
-  class { '::jenkins':
+  include jenkins
+  jenkins::plugin {
+    "git" : ;
   }
 
 }
