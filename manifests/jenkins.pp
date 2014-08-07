@@ -1,6 +1,6 @@
 class profiles::jenkins {
 
-include jenkins
+include '::jenkins'
 
 
 }
