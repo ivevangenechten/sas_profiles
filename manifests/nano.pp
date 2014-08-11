@@ -1,6 +1,7 @@
 class profiles::nano {
 
-class { '::nano':
-}
+  package { 'nano':
+      ensure => 'present',
+  }
 
 }
