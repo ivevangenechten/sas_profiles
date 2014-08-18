@@ -15,7 +15,7 @@ class profiles::jenkins {
 
 $a = $::operatingsystem == 'Ubuntu'
 $b = $::operatingsystemrelease >= 13.10
-$c = $::apache::version::default
+$c = $a and $b
 
 notify {"Apache version decided on ${c}":}
 notify {"Ubuntu? ${a}":}
