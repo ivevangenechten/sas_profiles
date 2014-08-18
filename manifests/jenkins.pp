@@ -9,7 +9,7 @@ class profiles::jenkins {
   }
 
   class { '::apache':
-##    default_mods        => false,
+    default_mods        => false,
 ##    default_confd_files => false,
   }
 
