@@ -13,9 +13,14 @@ class profiles::jenkins {
   #  default_confd_files => false,
   }
 
-  notify {"Apache version decided on ${::apache::version::default}":}
+$a = $::operatingsystem == 'Ubuntu'
+$b = $::operatingsystemrelease >= 13.10
 
-  #class { '::apache::mod::proxy': }
+notify {"Apache version decided on ${::apache::apache_version}":}
+notify {"Ubuntu? ${a}":}
+notify {"Release >= 13.10? ${b}":}
+
+#class { '::apache::mod::proxy': }
   #class { '::apache::mod::proxy_http': }
 
   #apache::vhost { $url:
