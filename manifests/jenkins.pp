@@ -10,7 +10,7 @@ class profiles::jenkins {
 
   class { '::apache':
     default_mods => ['proxy', 'proxy_http'],
-    conf_template => 'apache2.conf.erb',
+    conf_template => 'sas_profiles/apache2.conf.erb',
   }
 
 #class { '::apache::mod::proxy': }
