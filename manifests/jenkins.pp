@@ -17,9 +17,9 @@ class profiles::jenkins {
   class { '::apache::mod::proxy_http': }
 
   apache::vhost::proxy { "jenkins":
-    servername => "${url}",
+    servername => $url,
     port => 80,
-    dest => "http://${$url}:8080",
+    dest => "http://${url}:8080",
     vhost_name => "jenkins",
   }
 
