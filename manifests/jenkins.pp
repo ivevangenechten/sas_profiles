@@ -10,9 +10,10 @@ class profiles::jenkins {
 
   class { '::apache':
     default_mods => ['proxy', 'proxy_http'],
-    apache_version => '2.4',
   #  default_confd_files => false,
   }
+
+  notify {"Apache version decided on ${::apache::version::default}":}
 
   #class { '::apache::mod::proxy': }
   #class { '::apache::mod::proxy_http': }
