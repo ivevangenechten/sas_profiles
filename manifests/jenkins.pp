@@ -8,10 +8,10 @@ class profiles::jenkins {
     install_java => false,
   }
 
-  class { '::apache':
-    default_mods => ['proxy', 'proxy_http'],
-    conf_template => 'puppet:///modules/profiles/apache2.conf.erb',
-  }
+  # class { '::apache':
+  #   default_mods => ['proxy', 'proxy_http'],
+  #   conf_template => 'puppet:///modules/profiles/apache2.conf.erb',
+  # }
 
 #class { '::apache::mod::proxy': }
   #class { '::apache::mod::proxy_http': }
