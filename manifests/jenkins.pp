@@ -9,17 +9,12 @@ class profiles::jenkins {
   }
 
   class { '::apache':
+    default_mods        => false,
+    default_confd_files => false,
   }
 
-  a2mod { "Enable proxy mod":
-    name => "proxy",
-    ensure => "present",
-  }
-
-  a2mod { "Enable proxy_http mod":
-    name => "proxy_http",
-    ensure => "present",
-  }
+  class { '::apache::mod::proxy': }
+  class { '::apache::mod::proxy_http': }
 
   apache::vhost::proxy { "jenkins":
     servername => "${url}",
