@@ -9,7 +9,8 @@ class profiles::jenkins {
   }
 
   class { '::apache':
-    default_mods        => ['proxy', 'proxy_http'],
+    default_mods => ['proxy', 'proxy_http'],
+    apache_version => '2.4',
   #  default_confd_files => false,
   }
 
