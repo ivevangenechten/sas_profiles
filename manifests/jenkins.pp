@@ -9,9 +9,8 @@ class profiles::jenkins {
   }
 
   class { '::apache':
-    default_mods        => false,
-    default_confd_files => false,
-    confd_dir           => '/etc/apache2/conf-enabled/',
+##    default_mods        => false,
+##    default_confd_files => false,
   }
 
   class { '::apache::mod::proxy': }
