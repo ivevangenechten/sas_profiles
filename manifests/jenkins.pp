@@ -10,16 +10,8 @@ class profiles::jenkins {
 
   class { '::apache':
     default_mods => ['proxy', 'proxy_http'],
-  #  default_confd_files => false,
+    conf_template => 'apache2.conf.erb',
   }
-
-$a = $::operatingsystem == 'Ubuntu'
-$b = $::operatingsystemrelease >= 13.10
-$c = $::apache::apache_version
-
-notify {"Apache version decided on ${c}":}
-notify {"Ubuntu? ${a}":}
-notify {"Release >= 13.10? ${b}":}
 
 #class { '::apache::mod::proxy': }
   #class { '::apache::mod::proxy_http': }
