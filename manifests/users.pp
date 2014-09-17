@@ -1,13 +1,14 @@
 class profiles::users {
 
-  define add ($user = $name, $ensure, $uid, $gid, $home) {
+  define add ($user = $name, $ensure, $uid, $gid, $home, $system = false) {
     user { $user:
       ensure => $ensure,
       uid => $uid,
       gid => $gid,
       purge_ssh_keys => true,
       home => $home,
-      require => File["${home}/${user}/.ssh"]
+      require => File["${home}/${user}/.ssh"],
+      system => $system,
     }
 
     file { "${home}/${user}/.ssh":
