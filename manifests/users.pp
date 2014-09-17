@@ -7,23 +7,23 @@ class profiles::users {
       gid => $gid,
       purge_ssh_keys => true,
       home => $home,
-      require => File["${home}/${user}/.ssh"],
       system => $system,
     }
 
-    file { "${home}/${user}/.ssh":
+    file { "${home}/.ssh":
       ensure => directory,
       owner => $user,
       group => $user,
       mode => '0700',
-      require => File["${home}/${user}"],
+      require => File["${home}"],
     }
 
-    file { "${home}/${user}":
+    file { "${home}":
       ensure => directory,
       owner => $user,
       group => $user,
       mode => '0750',
+      require => User["${user}"],
     }
 
   }
