@@ -1,6 +1,6 @@
 class profiles::users {
 
-  define add ($user = $name, $ensure, $uid, $gid, $home, $system = false, $groups) {
+  define add ($user = $name, $ensure, $uid, $gid, $home, $system = false, $groups, $mode = '0750') {
     user { $user:
       ensure => $ensure,
       uid => $uid,
@@ -23,7 +23,7 @@ class profiles::users {
       ensure => directory,
       owner => $user,
       group => $user,
-      mode => '0750',
+      mode => $mode,
       require => User["${user}"],
     }
 
