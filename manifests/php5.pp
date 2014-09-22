@@ -15,8 +15,5 @@ class profiles::php5 {
   package { 'php5-json':
     ensure => 'present',
   }
-  package { 'php5-apc':
-    ensure => 'present',
-  }
 
 }
