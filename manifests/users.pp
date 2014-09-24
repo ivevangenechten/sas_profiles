@@ -1,6 +1,6 @@
 class profiles::users {
 
-  define add ($user = $name, $ensure, $uid, $gid, $home, $system = false, $groups, $mode = '0750') {
+  define add ($user = $name, $ensure, $uid, $gid, $home, $system = false, $groups, $mode = '0750', $shell = '/bin/sh') {
     user { $user:
       ensure => $ensure,
       uid => $uid,
@@ -9,6 +9,7 @@ class profiles::users {
       home => $home,
       system => $system,
       groups => $groups,
+      shell => $shell,
     }
 
     file { "${home}/.ssh":
