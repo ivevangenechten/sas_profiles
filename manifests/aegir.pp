@@ -1,6 +1,8 @@
 class profiles::aegir {
 
-class {'::aegir':
-}
+ class { '::profiles::aegir_mysql':
+  before => Class['::aegir'],
+ }
+ class {'::aegir': }
 
 }
