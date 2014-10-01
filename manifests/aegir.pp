@@ -1,8 +1,7 @@
 class profiles::aegir {
 
- class { '::profiles::mysql':
-    before => Class['::aegir'],
+ class {'::aegir':
+   require => Class['::profiles::mysql']
  }
- class {'::aegir': }
 
 }
