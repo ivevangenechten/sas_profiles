@@ -1,4 +1,4 @@
-class profiles::aegir_mysql {
+class profiles::mysql {
 
   $root_password = hiera('profiles::mysql::passwords::root')
 
