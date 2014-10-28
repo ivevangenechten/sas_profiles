@@ -5,9 +5,9 @@ class profiles::aegir (
 ) {
 
   class { '::aegir':
-    install_aegir    => profiles::aegir::install_aegir,
-    install_mysql    => profiles::aegir::install_mysql,
-    install_apache2  => profiles::aegir::install_apache2
+    install_aegir    => $profiles::aegir::install_aegir,
+    install_mysql    => $profiles::aegir::install_mysql,
+    install_apache2  => $profiles::aegir::install_apache2
   }
 
 }
