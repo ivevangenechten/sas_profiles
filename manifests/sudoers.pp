@@ -47,7 +47,7 @@ class profiles::sudoers {
   }
 
   # Special case: special sudoers entries for all webXX
-  if $hostname =~ /web\d+\/ {
+  if $hostname =~ /web\d+/ {
     sudo::conf { 'aegir':
       content => 'aegir ALL=(ALL) NOPASSWD: /usr/sbin/apache2ctl',
     }
