@@ -20,10 +20,6 @@ class profiles::activedirectory {
     ensure => 'running',
   }
 
-  service { 'winbind':
-    ensure => 'running',
-  }
-
   file { '/etc/samba/smb.conf':
     path    => '/etc/samba/smb.conf',
     source  => "puppet:///modules/profiles/smb.conf",
@@ -37,7 +33,7 @@ class profiles::activedirectory {
     source  => "puppet:///modules/profiles/nsswitch.conf",
     require => Package['winbind'],
     owner   => root, group => 0, mode => 0644,
-    notify  => Service['winbind'],
+    notify  => Service['smbd'],
   }
 
   file { '/etc/krb5.conf':
@@ -45,7 +41,7 @@ class profiles::activedirectory {
     source  => "puppet:///modules/profiles/krb5.conf",
     require => [ Package['samba'], Package['winbind'] ],
     owner   => root, group => 0, mode => 0644,
-    notify  => [ Service['winbind'], Service['smbd'] ],
+    notify  => [ Service['smbd'] ],
   }
 
 }
