@@ -40,4 +40,12 @@ class profiles::activedirectory {
     notify  => Service['winbind'],
   }
 
+  file { '/etc/krb5.conf':
+    path    => '/etc/krb5.conf',
+    source  => "puppet:///modules/profiles/krb5.conf",
+    require => [ Package['samba'], Package['winbind'] ],
+    owner   => root, group => 0, mode => 0644,
+    notify  => [ Service['winbind'], Service['smbd'] ],
+  }
+
 }
